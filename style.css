@@ -1,0 +1,331 @@
+@import url('//fonts.cdnfonts.com/css/sherika');
+@import url('//fonts.cdnfonts.com/css/itc-avant-garde-gothic-std-book');
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'ITC Avant Garde Gothic Std Book', sans-serif;
+    background: #C1C8E4;
+    font-weight: bold;
+    position: relative;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Asvgjs%3D%22http%3A%2F%2Fsvgjs.dev%2Fsvgjs%22%20version%3D%221.1%22%20viewBox%3D%220%200%20700%20700%22%20width%3D%22700%22%20height%3D%22700%22%20opacity%3D%221%22%3E%3Cdefs%3E%3ClinearGradient%20gradientTransform%3D%22rotate(190%2C%200.5%2C%200.5)%22%20x1%3D%2250%25%22%20y1%3D%220%25%22%20x2%3D%2250%25%22%20y2%3D%22100%25%22%20id%3D%22ffflux-gradient%22%3E%3Cstop%20stop-color%3D%22%238860d0%22%20stop-opacity%3D%221%22%20offset%3D%220%25%22%2F%3E%3Cstop%20stop-color%3D%22%235680e9%22%20stop-opacity%3D%221%22%20offset%3D%22100%25%22%2F%3E%3C%2FlinearGradient%3E%3Cfilter%20id%3D%22ffflux-filter%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%20filterUnits%3D%22objectBoundingBox%22%20primitiveUnits%3D%22userSpaceOnUse%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.004%200.003%22%20numOctaves%3D%222%22%20seed%3D%2274%22%20stitchTiles%3D%22stitch%22%20x%3D%220%25%22%20y%3D%220%25%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20result%3D%22turbulence%22%2F%3E%3CfeGaussianBlur%20stdDeviation%3D%226%206%22%20x%3D%220%25%22%20y%3D%220%25%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20in%3D%22turbulence%22%20edgeMode%3D%22duplicate%22%20result%3D%22blur%22%2F%3E%3CfeBlend%20mode%3D%22hard-light%22%20x%3D%220%25%22%20y%3D%220%25%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20in%3D%22SourceGraphic%22%20in2%3D%22blur%22%20result%3D%22blend%22%2F%3E%0A%20%20%0A%3C%2Ffilter%3E%3C%2Fdefs%3E%3Crect%20width%3D%22700%22%20height%3D%22700%22%20fill%3D%22url(%23ffflux-gradient)%22%20filter%3D%22url(%23ffflux-filter)%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: repeat repeat;
+    background-position: center center;
+    background-size: cover;
+    
+  }
+
+  body::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  body::-webkit-scrollbar-track {
+      background-color: azure;  
+  }
+    
+  body::-webkit-scrollbar-thumb {
+      background-color: gray;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .wrapper li{
+    margin: 30px;
+    color:#07001f;
+    text-align: left;
+  }
+  
+
+  .Signer {
+    color: white;
+    background-color: #5AB9EA;
+    cursor: pointer;
+    border: 0;
+    border-radius: 7px;
+    margin: 0 10px;
+    width: 100px;
+    padding: 7px 0 7px 0;
+    transition: 0.3s;
+  }
+
+  .Signer:hover {
+    color: white;
+    width: 90px;
+    box-shadow: 0 0 10px #5680E9;
+    background-color: #5AB9EA;
+    padding: 10px 0 10px 0;
+  }
+
+  .SignerFont{
+    color: white;
+    font-weight: bold;
+    font-family: 'ITC Avant Garde Gothic Std Book', sans-serif;
+  }
+  
+li{
+  color: white;
+  margin-left: 5px;
+}
+  
+  header {
+    padding: 18px 0;
+    background-color: azure;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
+  }
+  .Navcontainer {
+    padding: 0 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .logo-box {
+    float: left;
+    margin-right: 20px;
+  }
+  .logo-box a {
+    outline: none;
+    display: block;
+  }
+  .logo-box img {display: block;}
+  nav {
+    overflow: hidden;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+  }
+  nav li {
+    display: inline-block;
+    margin-left: 25px;
+    height: 70px;
+    line-height: 70px;
+    transition: .15s linear;
+  }
+  nav a {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    color: black;
+    text-transform: uppercase;
+  }
+  nav a:after {
+    content: "";
+    width: 0;
+    height: 2.5px;
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    background: #5AB9EA;
+    transition: width .15s linear;  
+  }
+  nav a:hover:after {width: 100%;}
+  
+  @media screen and (max-width: 660px) {
+    header {text-align: center;}
+    .logo-box {
+      float: none;
+      display: inline-block;
+      margin: 0 0 16px 0;
+    }
+    ul {float: none;}
+    nav li:first-of-type {margin-left: 0;}
+  }
+  @media screen and (max-width: 550px) {
+  nav {overflow: visible;}
+  nav li {
+    display: block;
+    margin: 0;
+    height: 40px;
+    line-height: 40px;
+  }
+  nav li:hover {background: rgba(0,0,0,.1);}
+  nav a:after {content: none;}
+  }
+
+
+.wrapper{
+  width: 330px;
+  padding: 2rem 0 1rem 0;
+  margin: 50px auto;
+  text-align: center;
+  z-index: 2;
+  *zoom: 1;
+  background: rgba(255, 255, 255, 0.23);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+}
+h1{
+  font-size: 2rem;
+  color: #07001f;
+}
+p{
+  margin-bottom: 1.7rem;
+}
+.recover{
+  text-align: right;
+  font-size: 0.8rem;
+  margin: 0.2rem 1.7rem 0 0;
+}
+.recover a{
+  text-decoration: none;
+  color: #07001f;
+}
+.Sign{
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  padding: 8px 0;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  width: 85%;
+  background: #5AB9EA;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'ITC Avant Garde Gothic Std Book', sans-serif;
+}
+.Sign:hover{
+  background: rgba(34,50, 91, 0.6);
+}
+.or{
+  font-size: 0.8rem;
+  margin-top: 1.5rem;
+}
+.icons i{
+  color: #07001f;
+  background-color: azure;
+  padding: 00.8rem 1.5rem;
+  border-radius: 10px;
+  margin-left: .9rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.icons i:hover{
+  color: #fff !important;
+  background: #07001f;
+  transition: 1s;
+}
+.icons i:first-child{
+  color: green;
+}
+.icons i:last-child{
+  color: blue;
+}
+.not-member{
+  font-size: 0.8rem;
+  margin-top: 1.4rem;
+}
+.not-member a{
+  color: azure;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  font-size: 15px;
+}
+.not-member a:after {
+  content: "";
+  width: 0;
+  height: 1.5px;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  background: azure;
+  transition: width .15s linear;  
+}
+.not-member a:hover:after {width: 100%;}
+
+form .field {
+  margin-bottom: 20px;
+}
+
+form .input-field {
+  position: relative;
+  height: 40px;
+  width: 100%;
+  padding: 0 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.input-field input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  padding: 0 15px;
+  border: 1.25px solid #d1d1d1;
+}
+
+.invalid input {
+  border-color: #d93025;
+
+}
+
+.input-field .show-hide {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #919191;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.field .error {
+  padding:  5px 30px 0 30px;
+  margin: 0 0 -30px 0;
+  color: #d93025;
+  font-size: 12px;
+  display: none;
+  text-align: left;
+}
+
+.invalid .error {
+  display: flex;
+}
+
+.error .error-icon {
+  font-size: 15px;
+  padding-right: 5px;
+}
+
+.create-password .error {
+  align-items: flex-start;
+}
+
+.create-password .error-icon {
+  margin-top: 4px;
+}
+
+.button input {
+  margin: 10px 0 0 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'ITC Avant Garde Gothic Std Book',sans-serif;
+  background-color: #8860D0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.button input:hover {
+  background-color: #5680E9;
+}
+
+.button input:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en"  dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMM | Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+    
+    <header>
+        <div class="Navcontainer">
+          <div class="logo-box">
+            <a href="/">
+              <img src="" style="width: 70px;">
+            </a>
+          </div>
+          <nav>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Match Maker</a></li>
+            <li><a href="">lectures</a></li>
+            <li><a href="">About</a></li>
+            <li><button class="Signer"><a class="SignerFont" href="">Sign Up/In</a></button></li>
+         </ul>
+        </nav>
+        </div>
+    </header>
+
+
+        <div class="wrapper">
+                <h1>Welcome!</h1>
+                <p>Don't forget to read the<br>terms/conditions</p>
+                <form action="#" method="post">
+
+                    <div class="field">
+                    <div class="input-field">
+                      <input type="text" placeholder="Enter full name" required>
+                    </div>
+                    </div>
+
+                    <div class="field">
+                      <div class="input-field">
+                        <input type="number" placeholder="Enter age" required>
+                      </div>
+                    </div>
+
+                <div class="field email-field">
+                    <div class="input-field">
+                      <input type="email" placeholder="Enter your email" class="email" required />
+                    </div>
+                    <span class="error email-error">
+                      <i class="bx bx-error-circle error-icon"></i>
+                      <p class="error-text">Please enter a valid email</p>
+                    </span>
+                </div>
+
+                <div class="field create-password">
+                    <div class="input-field">
+                      <input type="password" placeholder="Create password" class="password" required/>
+                      <i class="bx bx-hide show-hide"></i>
+                    </div>
+                    <span class="error password-error">
+                      <i class="bx bx-error-circle error-icon"></i>
+                      <p class="error-text"> Please enter atleast 8 charatcers with number, symbol, small and capital letter</p>
+                    </span>
+                  </div>
+
+                    <div class="field confirm-password">
+                        <div class="input-field">
+                          <input type="password" placeholder="Confirm password" class="cPassword" required/>
+                          <i class="bx bx-hide show-hide"></i>
+                        </div>
+                        <span class="error cPassword-error">
+                          <i class="bx bx-error-circle error-icon"></i>
+                          <p class="error-text">Password don't match</p>
+                        </span>
+                      </div>
+                   
+                    <div style="padding: 8px; background: rgba(255, 255, 255, 0.4);">
+                      <label>
+                        <input type="radio" name="gender" id="option1" name="options" required/>
+                        Male
+                    </label>
+                    <a style="padding: 0 25px 0 25px">OR</a>
+                    <label>
+                        <input type="radio" name="gender" id="option2" name="options" required/>
+                        Female
+                    </label>
+                    </div>
+                    <div style="padding: 12.5px 0 0 0; ">
+                    <label class="not-member" for="terms">I agree to the <a href="#terms">terms and conditions</a></label>
+                    <input type="checkbox" id="terms" name="terms" required>
+                </div>
+
+                <div class="input-field button" id="SignUp">
+                    <input type="submit" id="submit" value="Sign Up" disabled/>
+                </div>
+
+                <div class="not-member">
+                Already a member? <a href="signIn.html">Sign In</a>
+                </div>
+
+
+        </form>
+        </div>
+
+        <div class="wrapper" style="width:auto; padding:20px; margin:75px; margin-top: 150px;">
+                
+                <div><a style="font-size:6vw; text-align: center;">Terms and Conditions</a></div>
+
+                <div>
+                <a>
+                    <li>Applicants must be at least 18 years old at registration.</li>
+                    <li>Applicants must have legal status in the country</li>
+                    <li>Applicants must provide all necessary information and are responsible for its accuracy</li>
+                    <li>Applicants must provide one or more credible references to validate the supplied information</li>
+                    <li>Applicants must pay the subscription fee</li>
+                    <li>Applicants must complete the questionnaire without mentioning any information that could lead to their identification</li>
+                    <li>It is strictly prohibited to provide misleading or disrespectful answers to the questionnaire</li>
+                    <li>Any member may voluntarily end their membership at any time. However, refunds will not be provided</li>
+                    <li>ICNA Matchmaking Service is not responsible for what may happen between the two parties during or after the subscription service</li>
+                    <li>ICNA Matchmaking Service does not guarantee to succeed in finding me a suitable partner for marriage</li>
+                    <li>No members have access to information that can identify other members. We carefully protect this information and will never disclose it</li>
+                    <li>The site is well protected against any kind of intrusion</li>
+                    <li>Therefore, you must protect your access username and password</li>
+                </a>
+                </div>
+
+        </div>
+
+ <script src="script.js"></script>
+
+    </body>
+
+    
+</body>
+</html>
