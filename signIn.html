@@ -13,30 +13,29 @@
 <body>
 
     <header>
-        <div class="Navcontainer">
-          <div class="logo-box">
-            <a href="/">
-              <img src="" style="width: 70px;">
-            </a>
-          </div>
-          <nav>
-          <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Match Maker</a></li>
-            <li><a href="">lectures</a></li>
-            <li><a href="">About</a></li>
-            <li><button class="Signer"><a class="SignerFont" href="">Sign Up/In</a></button></li>
-         </ul>
-        </nav>
+      <div class="Navcontainer">
+        <div class="logo-box">
+          <a href="index.html">
+            <img src="images/LMM Final Logo.png" style="width: 200px;">
+          </a>
         </div>
-      </header>
+        <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="">Match Maker</a></li>
+          <li><a href="">lectures</a></li>
+          <li><a href="">About</a></li>
+          <li><button class="Signer"><a class="SignerFont" href="signUp.html">Sign Up/In</a></button></li>
+      </ul>
+      </nav>
+      </div>
+    </header>
 
       <div class="wrapper">
         <h1>Hello Again!</h1>
         <p>Welcome back you've <br> been missed!</p>
         <form action="#" method="post">
-
-                <div>  
+ 
                   <div class="field email-field">
                     <div class="input-field">
                       <input type="email" placeholder="Enter your email" class="email" required />
@@ -48,13 +47,12 @@
                       <input type="password" placeholder="Enter your password" class="password" required />
                       <i class="bx bx-hide show-hide"></i>
                     </div>
+                    <span class="error">
+                      <i class="bx bx-error-circle error-icon"></i>
+                      <p class="error-text">Email or Password are invalid</p>
+                    </span>
                   </div>
-                  
-                  <span class="error email-error">
-                    <i class="bx bx-error-circle error-icon"></i>
-                    <p class="error-text">Email or Password are invalid</p>
-                  </span>
-                </div>
+                
 
           <p class="recover">
             <a href="#">Recover Password</a>
@@ -75,13 +73,58 @@
         <div class="not-member">
           Not a member? <a href="signUp.html">Register Now</a>
         </div>
-        </form>
+        
+      </form>
       </div>
 
-<script src="script.js"></script>
+  <script>
 
-    </body>
+  const form = document.querySelector("form"),
+    emailField = form.querySelector(".email-field"),
+    emailInput = emailField.querySelector(".email"),
+    passField = form.querySelector(".create-password"),
+    passInput = passField.querySelector(".password");
 
+  // Hide and show password
+  const eyeIcons = document.querySelectorAll(".show-hide");
+  eyeIcons.forEach((eyeIcon) => {
+    eyeIcon.addEventListener("click", () => {
+      const pInput = eyeIcon.parentElement.querySelector("input"); //getting parent element of eye icon and selecting the password input
+      if (pInput.type === "password") {
+        eyeIcon.classList.replace("bx-hide", "bx-show");
+        return (pInput.type = "text");
+      }
+      eyeIcon.classList.replace("bx-show", "bx-hide");
+      pInput.type = "password";
+    });
+  });
+
+  // Calling Funtion on Form Sumbit
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); //preventing form submitting
+    checkEmail();
+    createPass();
+
+    //calling function on key up
+    emailInput.addEventListener("keyup", checkEmail);
+    passInput.addEventListener("keyup", createPass);
+
+    if (
+      !emailField.classList.contains("invalid") &&
+      !passField.classList.contains("invalid")
+    ) {
+      location.href = form.getAttribute("action");
+    }
+  });
+  const submitButton = document.querySelector('#submit');
+  const inputs = Array.from(form.querySelectorAll('input[required]'));
+  form.addEventListener('input', () => {
+    const areInputsFilled = inputs.every(input => input.value.trim() !== '');
+    submitButton.disabled = !areInputsFilled;
+  });
+
+
+  </script>
     
 </body>
 </html>
