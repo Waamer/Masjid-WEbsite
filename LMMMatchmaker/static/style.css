@@ -247,7 +247,7 @@ form .field {
   margin-bottom: 20px;
 }
 
-form .input-field {
+input {
   position: relative;
   height: 40px;
   width: 100%;
@@ -256,7 +256,7 @@ form .input-field {
   margin: 0 auto;
 }
 
-.input-field input {
+input {
   height: 100%;
   width: 100%;
   outline: none;
@@ -308,7 +308,7 @@ form .input-field {
   margin-top: 4px;
 }
 
-.button input {
+button {
   margin: 10px 0 0 0;
   color: #fff;
   font-size: 16px;
