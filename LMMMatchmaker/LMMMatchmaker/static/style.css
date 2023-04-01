@@ -250,13 +250,28 @@ form .field {
   margin-bottom: 20px;
 }
 
+<<<<<<<< HEAD:static/style.css
 input, .input-field {
+========
+input {
+>>>>>>>> 8c39622da5e60ae59740b28970147921ab07a21e:LMMMatchmaker/static/style.css
   position: relative;
   height: 40px;
   width: 85%;
   padding: 0 20px;
   max-width: 960px;
+<<<<<<<< HEAD:static/style.css
   margin-bottom: -5px; 
+========
+  margin: 0 auto;
+}
+
+input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+>>>>>>>> 8c39622da5e60ae59740b28970147921ab07a21e:LMMMatchmaker/static/style.css
   border-radius: 8px;
   border: 2px solid transparent;
 }

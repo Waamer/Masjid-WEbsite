@@ -6,18 +6,13 @@
         
 
             <div>
-                <form action="#" method="POST">
+                <form method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
-                          
-                    <div>
-                        <label class="not-member" for="terms">I agree to the <a href="#terms">terms and conditions</a></label>
-                        <input type="checkbox" style="height:auto; width: auto;" required>
-                    </div>
-
-                    <button class="input-field field" type="submit" style="margin: 12px 0 8px 0;">Sign Up</button>
+                    <button type="submit">Sign Up</button>
                 </form>
-                <label class="not-member" for="terms">Already have an account? <a href="#">Sign In</a></label>
+        
+                <small>Already have an account? <a href="#">Sign In</a></small>
         </div>
 
 
@@ -25,7 +20,7 @@
     
     </div>
 
-    <div class="wrapper" id="terms" style="width:auto; padding:20px; margin:75px; margin-top: 150px;">
+    <div class="wrapper" style="width:auto; padding:20px; margin:75px; margin-top: 150px;">
         
         <div><a style="font-size:6vw; text-align: center;">Terms and Conditions</a></div>
 
