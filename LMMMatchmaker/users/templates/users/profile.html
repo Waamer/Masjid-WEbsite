@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="card">
+
+        <div class="info">
+            <span>Edit Profile</span>
+            <button id="savebutton">edit</button>
+        </div>
+
+        <div class="forms">
+
+            <div class="inputs">
+                <span>First Name</span>
+                <input type="text" readonly value="Waleed">
+            </div>
+
+            <div class="inputs">
+                <span>Last Name</span>
+                <input type="text" readonly value="Aamer">
+            </div>
+
+            <div class="inputs">
+                <span>Email</span>
+                <input type="text" readonly value="waamer1a@gmail.com">
+            </div>
+
+            <div class="inputs">
+                <span>UserName</span>
+                <input type="text" readonly value="Waldo">
+            </div>
+
+            <div class="inputs">
+                <span>Password</span>
+                <input type="text" readonly value="Password123">
+            </div>
+            
+            <button class="input-field field" type="submit" style="margin: 20px 0 5px 15px; border-radius: 6px;">SUMBIT CHANGES</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    var savebutton = document.getElementById('savebutton');
+    var readonly = true;
+    var inputs = document.querySelectorAll('input[type="text"]');
+    savebutton.addEventListener('click',function(){
+        
+        for (var i=0; i<inputs.length; i++) {
+        inputs2[i].toggleAttribute('readonly');
+        };
+
+        if (savebutton.innerHTML == "edit") {
+        savebutton.innerHTML = "save";
+            } else {
+        savebutton.innerHTML = "edit";
+        }
+        
+    });
+</script>
+
+{% endblock content %}
