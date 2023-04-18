@@ -83,7 +83,7 @@ li {
 
 header {
     padding: 18px 0;
-    background-color: azure;
+    background-color: #F5F5F5;
     box-shadow: rgba(0,0,0,.35)0 5px 15px
 }
 
@@ -352,7 +352,7 @@ button,input[type=password],input[type=text] {
 
 .card {
     width: 350px;
-    background-color: #fff;
+    background-color: #F5F5F5;
     box-shadow: 0 15px 30px rgba(0,0,0,.1);
     border-radius: 10px;
     overflow: hidden
@@ -362,7 +362,7 @@ button,input[type=password],input[type=text] {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #e1dede;
-    background-color: #e5e5e5
+    background-color: #E8E2E2
 }
 
 .card .info span {
@@ -415,4 +415,16 @@ button,input[type=password],input[type=text] {
 
 .card .inputs input[type=text][readonly] {
     border: 2px solid transparent
+}
+
+input[type="text"], textarea {
+    background-color : #F5F5F5; 
+}
+
+.Logo{
+    transition: transform 0.5s;
+}
+
+.Logo:hover{
+    transform: scale(1.075);
 }
