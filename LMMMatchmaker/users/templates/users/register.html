@@ -1,53 +1,97 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="wrapper">
-    <h1>Welcome!</h1>
-    <p>Don't forget to read the<br>terms/conditions</p>
-    
 
-        <div>
-            <form action="#" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                      
-                <div>
-                    <label class="not-member" for="terms">I agree to the <a href="#terms">terms and conditions</a></label>
-                    <input type="checkbox" style="height:auto; width: auto;" required>
+        <div class="grid md:grid-cols-2 gap-8 py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+
+            <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                <div class="p-6 sm:p-8">
+                    <h1 class="text-gray-900 dark:text-white text-4xl md:text-5xl lg:text-6xl font-bold">Welcome!</h1>
+                    <p class="text-gray-900 dark:text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-3">Don't forget to read the terms/conditions</p>
+                    <form class="space-y-4 md:space-y-6" action="#" method="POST">
+                        <div>
+                            {% csrf_token %}
+                            {% for field in form %}
+                              <div class="relative z-0 w-full mb-6 group">
+                                {{ field }}
+                                <label for="{{ field.auto_id }}" class="peer-focus:font-medium absolute text-md font-semibold text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                  {% if field.name == 'username' %}
+                                    Your Username
+                                  {% elif field.name == 'first_name' %}
+                                    Your First Name
+                                  {% elif field.name == 'last_name' %}
+                                    Your Last Name
+                                  {% elif field.name == 'email' %}
+                                    Your Email
+                                  {% elif field.name == 'password1' %}
+                                    Your Password
+                                  {% elif field.name == 'password2' %}
+                                    Confirm Password
+                                  {% endif %}
+                                </label>
+                                {% if field.name == 'password1' %}
+                                <div id="tooltip" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-xs font-light text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                    Password must be: <br>
+                                    - Not similar to Username<br>
+                                    - Not Common<br>
+                                    - 8 (or more) characters<br>
+                                    - Not entirely numeric<br>
+                                    <div class="tooltip-arrow" data-popper-arrow></div>
+                                  </div>
+                                {% endif %}
+                                {% if field.errors %}
+                                  {% for error in field.errors %}
+                                    <div class="text-red-500 mx-2 my-2 text-xs font-normal">{{ error }}</div>
+                                  <style>
+                                    input[name="{{ field.name }}"] {
+                                        border-color: red;
+                                    }
+                                    label[for="{{ field.auto_id }}"] {
+                                        color: red;
+                                    }
+                                  </style>
+                                  {% endfor %}
+                                {% endif %}
+                              </div>
+                            {% endfor %}
+                          </div>
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                              <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
+                            </div>
+                            <div class="ml-3 text-sm">
+                              <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
+                        <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                            Already have an account? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign in here</a>
+                        </p>
+                    </form>
                 </div>
+            </div>
 
-                <button class="input-field field" type="submit" style="margin: 12px 0 8px 0;">Sign Up</button>
-            </form>
-            <label class="not-member" for="terms">Already have an account? <a href="#">Sign In</a></label>
-    </div>
+            <div class="block mx-auto max-w-screen-xl p-6 bg-white rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <h1 class="mb-3 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-center text-gray-900 dark:text-white">Terms and Conditions</h1>
+                <ul class="space-y-1 font-medium mx-auto max-w-lg text-gray-500 list-disc list-inside dark:text-gray-400">
+                    <li>Applicants must be at least 18 years old at registration.</li>
+                        <li>Applicants must have legal status in the country</li>
+                        <li>Applicants must provide all necessary information and are responsible for its accuracy</li>
+                        <li>Applicants must provide one or more credible references to validate the supplied information</li>
+                        <li>Applicants must pay the subscription fee</li>
+                        <li>Applicants must complete the questionnaire without mentioning any information that could lead to their identification</li>
+                        <li>It is strictly prohibited to provide misleading or disrespectful answers to the questionnaire</li>
+                        <li>Any member may voluntarily end their membership at any time. However, refunds will not be provided</li>
+                        <li>ICNA Matchmaking Service is not responsible for what may happen between the two parties during or after the subscription service</li>
+                        <li>ICNA Matchmaking Service does not guarantee to succeed in finding me a suitable partner for marriage</li>
+                        <li>No members have access to information that can identify other members. We carefully protect this information and will never disclose it</li>
+                        <li>The site is well protected against any kind of intrusion</li>
+                        <li>Therefore, you must protect your access username and password</li>
+                </ul>
+            </div>
 
-
-
-
-</div>
-
-<div class="wrapper" id="terms" style="width:auto; padding:20px; margin:50px; margin-top: 150px;">
-    
-    <div><a style="font-size:6vw; text-align: center;">Terms and Conditions</a></div>
-
-    <div>
-    <a style="font-size:2vh;">
-        <li>Applicants must be at least 18 years old at registration.</li>
-        <li>Applicants must have legal status in the country</li>
-        <li>Applicants must provide all necessary information and are responsible for its accuracy</li>
-        <li>Applicants must provide one or more credible references to validate the supplied information</li>
-        <li>Applicants must pay the subscription fee</li>
-        <li>Applicants must complete the questionnaire without mentioning any information that could lead to their identification</li>
-        <li>It is strictly prohibited to provide misleading or disrespectful answers to the questionnaire</li>
-        <li>Any member may voluntarily end their membership at any time. However, refunds will not be provided</li>
-        <li>ICNA Matchmaking Service is not responsible for what may happen between the two parties during or after the subscription service</li>
-        <li>ICNA Matchmaking Service does not guarantee to succeed in finding me a suitable partner for marriage</li>
-        <li>No members have access to information that can identify other members. We carefully protect this information and will never disclose it</li>
-        <li>The site is well protected against any kind of intrusion</li>
-        <li>Therefore, you must protect your access username and password</li>
-    </a>
-    </div>
-
-</div>
+            <!--style="background-image: linear-gradient(135deg, rgb(166, 180, 255) 0%, rgb(22, 20, 255) 100%)"-->
+            
+        </div>
 
     {% endblock content %}
   

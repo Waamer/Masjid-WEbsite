@@ -1,45 +1,89 @@
+{% load compress %}
 {% load static %}
+
 <!DOCTYPE html>
-<html lang="en"  dir="ltr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>LMM | Home</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django + Tailwind CSS + Flowbite</title>
+
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Asvgjs%3D%22http%3A%2F%2Fsvgjs.dev%2Fsvgjs%22%20version%3D%221.1%22%20viewBox%3D%220%200%20700%20700%22%20width%3D%22700%22%20height%3D%22700%22%20opacity%3D%221%22%3E%3Cdefs%3E%3ClinearGradient%20gradientTransform%3D%22rotate(190%2C%200.5%2C%200.5)%22%20x1%3D%2250%25%22%20y1%3D%220%25%22%20x2%3D%2250%25%22%20y2%3D%22100%25%22%20id%3D%22ffflux-gradient%22%3E%3Cstop%20stop-color%3D%22%238860d0%22%20stop-opacity%3D%221%22%20offset%3D%220%25%22%2F%3E%3Cstop%20stop-color%3D%22%235680e9%22%20stop-opacity%3D%221%22%20offset%3D%22100%25%22%2F%3E%3C%2FlinearGradient%3E%3Cfilter%20id%3D%22ffflux-filter%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%20filterUnits%3D%22objectBoundingBox%22%20primitiveUnits%3D%22userSpaceOnUse%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.004%200.003%22%20numOctaves%3D%222%22%20seed%3D%2274%22%20stitchTiles%3D%22stitch%22%20x%3D%220%25%22%20y%3D%220%25%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20result%3D%22turbulence%22%2F%3E%3CfeGaussianBlur%20stdDeviation%3D%226%206%22%20x%3D%220%25%22%20y%3D%220%25%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20in%3D%22turbulence%22%20edgeMode%3D%22duplicate%22%20result%3D%22blur%22%2F%3E%3CfeBlend%20mode%3D%22hard-light%22%20x%3D%220%25%22%20y%3D%220%25%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20in%3D%22SourceGraphic%22%20in2%3D%22blur%22%20result%3D%22blend%22%2F%3E%0A%20%20%0A%3C%2Ffilter%3E%3C%2Fdefs%3E%3Crect%20width%3D%22700%22%20height%3D%22700%22%20fill%3D%22url(%23ffflux-gradient)%22%20filter%3D%22url(%23ffflux-filter)%22%2F%3E%3C%2Fsvg%3E");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover
+      }
+
+      .glass {
+        background-color: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(10px);    
+      }
+    </style>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
 
 </head>
 
 <body>
-    <header>
-        <div class="Navcontainer">
-          <div class="logo-box">
-            <a href="index.html">
-              <img class="Logo" src="{% static 'Lmma logo2.png' %}" style="width: 200px; margin-top:-10px;">
-            </a>
+
+  <nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="https://flowbite.com/" class="flex items-center">
+        <img src="../static/LMM Logo.png" class="h-12 mr-4" alt="Flowbite Logo" />
+        <img src="../static/Lmma logo2.png" class="h-14 mr-3" alt="Flowbite Logo" />
+      </a>
+      <div class="flex md:order-2">
+        <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-semibold rounded-lg text-sm px-4 py-2 text-center mr-2">Sign Up/In</button>
+        <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+      <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+        <ul class="flex flex-col font-semibold p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-200 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="{% url 'home' %}" class="block py-2 pl-3 pr-4 rounded md:p-0 md:dark:text-blue-500 {% if request.resolver_match.view_name == 'home' %}text-blue-700{% else %}text-gray-900 hover:text-blue-700 dark:text-white dark:hover:bg-gray-700{% endif %}" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="{% url 'register' %}" class="block py-2 pl-3 pr-4 rounded md:p-0 md:dark:text-blue-500 {% if request.resolver_match.view_name == 'register' %}text-blue-700{% else %}text-gray-900 hover:text-blue-700 dark:text-white dark:hover:bg-gray-700{% endif %}">MatchMaker</a>
+          </li>
+          <li>
+            <a href="{% comment %}{% url 'about' %}{% endcomment %}" class="block py-2 pl-3 pr-4 rounded md:p-0 md:dark:text-blue-500 {% if request.resolver_match.view_name == 'about' %}text-blue-700{% else %}text-gray-900 hover:text-blue-700 dark:text-white dark:hover:bg-gray-700{% endif %}">About</a>
+          </li>
+          <li>
+            <a href="{% comment %}{% url 'profile' %}{% endcomment %}" class="block py-2 pl-3 pr-4 rounded md:p-0 md:dark:text-blue-500 {% if request.resolver_match.view_name == 'profile' %}text-blue-700{% else %}text-gray-900 hover:text-blue-700 dark:text-white dark:hover:bg-gray-700{% endif %}">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="container mx-auto mt-4">
+      {% if messages %}
+      {% for message in messages %}
+          <div>
+              {{ message }}
           </div>
-          <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="">Match Maker</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Profile</a></li>
-            <li><button class="Signer"><a class="SignerFont" href="signUp.html">Sign Up/In</a></button></li>
-         </ul>
-        </nav>
-        </div>
-    </header>
-
-    {% if messages %}
-        {% for message in messages %}
-            <div>
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
-    {% block content %}{% endblock %}
-
+      {% endfor %}
+      {% endif %}
+        {% block content %}
+        {% endblock content %}
+    </div>
+    
     <script src="{% static 'script.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
 </body>
+
 </html>
