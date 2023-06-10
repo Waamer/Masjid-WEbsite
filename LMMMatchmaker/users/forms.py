@@ -1,8 +1,14 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from .models import PersonalData
+
+sliderClass = """h-1 my-2 mt-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700"""
+selectClass = """block text-xs md:text-sm font-light py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-700 focus:outline-none focus:ring-0"""
+radioButtonClass = """w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"""
 
 class UserRegisterForm(UserCreationForm):
+    
     error_css_class = 'errorClass'
 
     tailwind_class = """peer block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600"""
@@ -13,16 +19,23 @@ class UserRegisterForm(UserCreationForm):
     last_name = forms.CharField(max_length=50, required=True, widget=forms.TextInput(attrs={'class': tailwind_class, 'placeholder': ' ', 'id': 'floating_last_name'}), label='')
     password1 = forms.CharField(widget=forms.TextInput(attrs={'class': tailwind_class, 'type': 'password', 'placeholder': ' ', 'id': 'floating_password1', 'required': True, 'data-tooltip-target' : 'tooltip', 'data-tooltip-trigger' : 'click'}), label='')
     password2 = forms.CharField(widget=forms.TextInput(attrs={'class': tailwind_class, 'type': 'password', 'placeholder': ' ', 'id': 'floating_password2', 'required': True}), label='')
+    gender = forms.ChoiceField(
+        label='Male or Female?',
+        choices=(
+            ('male', 'Male'),
+            ('female', 'Female'),
+        ),
+        widget=forms.RadioSelect(attrs={
+            'class': radioButtonClass,
+        }),
+        required=False,
+    )
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'gender']
 
-class PersonalForm(forms.Form):
-
-    sliderClass = """h-1 my-2 mt-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700"""
-    selectClass = """block text-xs md:text-sm font-light py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-700 focus:outline-none focus:ring-0"""
-    radioButtonClass = """w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"""
+class PersonalForm(forms.ModelForm):
 
     age = forms.IntegerField(
         label='Your Age',
@@ -137,3 +150,44 @@ class PersonalForm(forms.Form):
         }),
         initial='',
     )
+
+    prayers = forms.ChoiceField(
+        label='How many of the 5 daily prayers do you do regularly on time?',
+        choices=(
+            ('', 'How many of the 5 daily prayers do you do regularly on time?'),
+            ('Commited (5 Times)', 'Commited (5 Times)'),
+            ('Not Commited (1-4 Times)', 'Not Commited (1-4 Times)'),
+            ('Not Praying', 'Not Praying'),
+        ),
+        widget=forms.Select(attrs={
+            'class': selectClass,
+        }),
+        initial='',
+    )
+
+    masjid = forms.ChoiceField(
+        label='How connected are you with the local mosque?',
+        choices=(
+            ('', 'How connected are you with the local mosque?'),
+            ('Regular (Every Day)', 'Regular (Every Day)'),
+            ('Weekly', 'Weekly'),
+            ('Only Fridays', 'Only Fridays'),
+            ('Occasionally (For Events)', 'Occasionally (For Events)'),
+            ('Not Connected', 'Not Connected'),
+        ),
+        widget=forms.Select(attrs={
+            'class': selectClass,
+        }),
+        initial='',
+    )
+    
+    class Meta:
+        model = PersonalData
+        fields = '__all__'  # Use all fields from the model
+        widgets = {
+            'is_muslim': forms.RadioSelect(attrs={'class': radioButtonClass}),
+            'muslim_type': forms.RadioSelect(attrs={'class': radioButtonClass}),
+            'is_converted': forms.RadioSelect(attrs={'class': radioButtonClass}),
+        }
+        
+    

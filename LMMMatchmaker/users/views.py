@@ -24,7 +24,7 @@ def personal(request):
         form = PersonalForm(request.POST)
         if form.is_valid():
             form.save()  # Save the form data to the database
-            return redirect('success')  # Redirect to a success page
+            return redirect('home')  # Redirect to a success page
     else:
         form = PersonalForm()
 

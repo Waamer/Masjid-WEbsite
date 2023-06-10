@@ -12,7 +12,21 @@
                             {% csrf_token %}
                             {% for field in form %}
                               <div class="relative z-0 w-full mb-6 group">
-                                {{ field }}
+                                {% if field.name == 'gender' %}
+                                  <div class="flex flex-row md:ml-2">
+                                      <p class="mr-2 text-md font-medium text-gray-900 dark:text-gray-300">Gender:</p>
+                                      <div class="flex">
+                                        {% for choice in form.gender %}
+                                        <div class="flex items-center ml-4">
+                                            <input type="radio" id="{{ choice.id_for_label|lower }}" name="gender" value="{{ choice.choice_value }}" {% if choice.is_checked %}checked{% endif %} required>
+                                            <label for="{{ choice.id_for_label|lower }}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ choice.choice_label }}</label>
+                                        </div>
+                                        {% endfor %}                                    
+                                      </div>
+                                  </div>
+                                {% else %}
+                                  {{ field }}
+                                {% endif %}
                                 <label for="{{ field.auto_id }}" class="peer-focus:font-medium absolute text-md font-semibold text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                                   {% if field.name == 'username' %}
                                     Your Username
@@ -88,8 +102,6 @@
                         <li>Therefore, you must protect your access username and password</li>
                 </ul>
             </div>
-
-            <!--style="background-image: linear-gradient(135deg, rgb(166, 180, 255) 0%, rgb(22, 20, 255) 100%)"-->
             
         </div>
 

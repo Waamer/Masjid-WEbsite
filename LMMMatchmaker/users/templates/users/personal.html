@@ -13,202 +13,14 @@
     
     <div class="w-full bg-white shadow dark:bg-gray-800 dark:border-gray-700">
         <div class= "p-6 md:p-8 lg:p-16">    
-           <!-- <form class="text-md text-gray-500 dark:text-white" action="#" method="POST">
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                    <div class="flex flex-col">
-                        <label for="self-age" class="block">Your Age</label>
-                        <input id="self-age" type="range" min="18" max="60" value="18"  class="h-1 my-2 mt-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700">
-                        <p class="text-sm"><span id="selfAgeSlider">18</span> years</p>
-                        <script>
-                            // Get the slider element
-                            var slider = document.getElementById("self-age");
-                            // Get the element to display the slider value
-                            var sliderValueElement = document.getElementById("selfAgeSlider");
-                    
-                            // Update the value display when the slider value changes
-                            slider.addEventListener("input", function() {
-                                // Update the text content of the display element
-                                sliderValueElement.textContent = slider.value;
-                            });
-                        </script>
-                    </div>
-
-                    <div class="relative">
-                        <label for="underline_select" class="sr-only">Underline select</label>
-                        <select data-te-select-init id="underline_select" class="block py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-700 focus:outline-none focus:ring-0 peer">
-                            <option selected>Your Body Type</option>
-                            <option value="US">Thin</option>
-                            <option value="CA">Average</option>
-                            <option value="FR">Stout</option>
-                            <option value="DE">Petite</option>
-                            <option value="DE">Broad/Athletic</option>
-                        </select>
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="self-weight" class="block">Your Weight</label>
-                        <input id="self-weight" type="range" min="60" max="500" value="60"  class="h-1 my-2 mt-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700">
-                        <p class="text-sm"><span id="selfWeightSlider">0</span> lb</p>
-                        <script>
-                                var weightSlider = document.getElementById("self-weight");
-                                var weightSliderValueElement = document.getElementById("selfWeightSlider");
-                                weightSlider.addEventListener("input", function() {
-                                weightSliderValueElement.textContent = weightSlider.value;
-                                });
-                        </script>
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="self-height" class="block">Your Height</label>
-                        <input id="self-height" type="range" min="50" max="90" value="50" class="h-1 my-2 mt-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700">
-                        <p class="text-sm"><span id="selfHeightSlider" class="text-sm text-gray-500">0</span> ft</p>
-                        <script>
-                            var heightSlider = document.getElementById("self-height");
-                            var heightSliderValueElement = document.getElementById("selfHeightSlider");
-                            heightSlider.addEventListener("input", function() {
-                            var feet = Math.floor(heightSlider.value / 12);
-                            var inches = heightSlider.value % 12;
-                            heightSliderValueElement.textContent = feet + '"';
-                            if (inches !== 0) {
-                                heightSliderValueElement.textContent += " " + inches;
-                            }
-                            });
-                        </script>
-                    </div>
-
-                    <div class="flex flex-col">
-                        <p>Are you Muslim?</p>
-                        <div class="flex pt-2">
-                            <div class="flex items-center mr-4">
-                                <input id="yes1" type="radio" value="" name="Muslim?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="yes1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
-                            </div>
-                            <div class="flex items-center mr-4">
-                                <input id="no1" type="radio" value="" name="Muslim?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="no1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-col" id="muslimTypeDiv" style="display: none;">
-                        <p>What type of Muslim?</p>
-                        <div class="flex pt-2">
-                            <div class="flex items-center mr-4">
-                                <input id="sunni" type="radio" value="" name="whatMuslim?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="sunni" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Sunni</label>
-                            </div>
-                            <div class="flex items-center mr-4">
-                                <input id="shia" type="radio" value="" name="whatMuslim?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="shia" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Shia</label>
-                            </div>
-                            <div class="flex items-center mr-4">
-                                <input id="other1" type="radio" value="" name="whatMuslim?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="other1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Other</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-col" id="convertDiv" style="display: none;">
-                        <p>Are you Muslim since birth or converted?</p>
-                        <div class="flex pt-2">
-                            <div class="flex items-center mr-4">
-                                <input id="birth" type="radio" value="" name="Convert?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="birth" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Since birth</label>
-                            </div>
-                            <div class="flex items-center mr-4">
-                                <input id="convert" type="radio" value="" name="Convert?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="convert" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Converted</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="relative" id="selectDiv" style="display: none;">
-                        <label for="underline_select" class="sr-only">Underline select</label>
-                        <select data-te-select-init id="underline_select" class="block py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-700 focus:outline-none focus:ring-0 peer">
-                            <option selected>How long have you been a Muslim?</option>
-                            <option value="US"><1 Year</option>
-                            <option value="CA"><2 Years</option>
-                            <option value="FR"><5 Years</option>
-                            <option value="DE"><10 Years</option>
-                            <option value="DE">>10 Years</option>
-                        </select>
-                    </div>
-
-                    <div class="relative">
-                        <label for="underline_select" class="sr-only">Underline select</label>
-                        <select data-te-select-init id="underline_select" class="block text-xs md:text-sm font-light py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-700 focus:outline-none focus:ring-0 peer">
-                            <option selected>How many of the 5 daily prayers do you do regularly on time?</option>
-                            <option value="US">Commited (5 Times)</option>
-                            <option value="CA">Not Commited (1-4 Times)</option>
-                            <option value="FR">Not Praying</option>
-                        </select>
-                    </div>
-
-                    <div class="relative">
-                        <label for="underline_select" class="sr-only">Underline select</label>
-                        <select data-te-select-init id="underline_select" class="block text-xs md:text-sm font-light py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-700 focus:outline-none focus:ring-0 peer">
-                            <option selected>How connected are you with the local mosque?</option>
-                            <option value="US">Regular (Every Day)</option>
-                            <option value="CA">Weekly</option>
-                            <option value="DE">Only Fridays</option>
-                            <option value="FR">Occasionally (For Events)</option>
-                            <option value="DE">Not Connected</option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <script> 
-                    var yesRadioButton = document.getElementById("yes1");
-                    var muslimTypeDiv = document.getElementById("muslimTypeDiv");
-                    var convertDiv = document.getElementById("convertDiv");
-                    var selectDiv = document.getElementById("selectDiv");
-                    
-                    yesRadioButton.addEventListener("click", function() {
-                        muslimTypeDiv.style.display = "block";
-                        convertDiv.style.display = "none";
-                        selectDiv.style.display = "none";
-                    });
-                    
-                    var muslimTypeRadios = document.querySelectorAll('input[name="whatMuslim?"]');
-                    for (var i = 0; i < muslimTypeRadios.length; i++) {
-                        muslimTypeRadios[i].addEventListener("click", function() {
-                            convertDiv.style.display = "block";
-                            selectDiv.style.display = "none";
-                        });
-                    }
-                    
-                    var convertRadioButton = document.getElementById("convert");
-                    convertRadioButton.addEventListener("click", function() {
-                        selectDiv.style.display = "block";
-                    });
-                
-                    var noRadioButton = document.getElementById("no1");
-                    noRadioButton.addEventListener("click", function() {
-                        muslimTypeDiv.style.display = "none";
-                        convertDiv.style.display = "none";
-                        selectDiv.style.display = "none";
-                    });
-                
-                    var birthRadioButton = document.getElementById("birth");
-                    birthRadioButton.addEventListener("click", function() {
-                        selectDiv.style.display = "none";
-                    });
-                </script>
-
-                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-6">Next</button>
-            </form> -->
             <form class="text-md text-gray-500 dark:text-white" action="#" method="POST">
 
                 <div class="grid bg-white grid-cols-1 md:grid-cols-2 gap-6">
-
                     {% csrf_token %}
                     {% for field in form %}
                         {% if field.name == 'age' %}
                             <div class="flex flex-col">
-                                <label for="self-age" class="block">Your Age</label>
+                                <label for="{{ field.id_for_label }}" class="block">Your Age</label>
                                 {{ field }}
                                 <p class="text-sm"><span id="selfAgeSlider">18</span> years</p>
                             </div>
@@ -218,13 +30,13 @@
                             </div>
                         {% elif field.name == 'weight' %}
                             <div class="flex flex-col">
-                                <label for="self-weight" class="block">Your Weight</label>
+                                <label for="{{ field.id_for_label }}" class="block">Your Weight</label>
                                 {{ field }}
                                 <p class="text-sm"><span id="selfWeightSlider">0</span> lb</p>
                             </div>
                         {% elif field.name == 'height' %}
                             <div class="flex flex-col">
-                                <label for="self-height" class="block">Your Height</label>
+                                <label for="{{ field.id_for_label }}" class="block">Your Height</label>
                                 {{ field }}
                                 <p class="text-sm"><span id="selfHeightSlider" class="text-sm text-gray-500">0</span> ft</p>
                             </div>
@@ -232,32 +44,32 @@
                             <div class="flex flex-col">
                                 <p>Are you Muslim?</p>
                                 <div class="flex pt-2">
-                                    {% for choice in form.is_muslim %}
+                                    {% for choice in field %}
                                         <div class="flex items-center mr-4">
-                                            <input type="radio" id="{{ choice.id_for_label|lower }}" name="is_muslim" value="{{ choice.choice_value }}" {% if choice.is_checked %}checked{% endif %}>
-                                            <label for="{{ choice.id_for_label|lower }}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ choice.choice_label }}</label>
+                                            {{ choice.tag }}
+                                            <label for="{{ choice.id_for_label }}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ choice.choice_label }}</label>
                                         </div>
                                     {% endfor %}
                                 </div>
                             </div>
-                            <div class="flex flex-col" id="muslimTypeDiv" style="display: none;">
-                                <p>What type of Muslim?</p>
-                                <div class="flex pt-2">
-                                    {% for choice in form.muslim_type %}
-                                        <div class="flex items-center mr-4">
-                                            <input type="radio" id="{{ choice.id_for_label|lower }}" name="muslim_type" value="{{ choice.choice_value }}" {% if choice.is_checked %}checked{% endif %}>
-                                            <label for="{{ choice.id_for_label|lower }}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ choice.choice_label }}</label>
-                                        </div>
-                                    {% endfor %}
-                                </div>
+                        <div class="flex flex-col" id="muslimTypeDiv" style="display: none;">
+                            <p>What type of Muslim?</p>
+                            <div class="flex pt-2">
+                                {% for choice in form.muslim_type %}
+                                    <div class="flex items-center mr-4">
+                                        {{ choice.tag }}
+                                        <label for="{{ choice.id_for_label|lower }}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ choice.choice_label }}</label>
+                                    </div>
+                                {% endfor %}
                             </div>
-                            <div class="flex flex-col" id="convertDiv" style="display: none;">
+                        </div>
+                        <div class="flex flex-col" id="convertDiv" style="display: none;">
                             <p>Are you a convert or were you born Muslim?</p>
                             <div class="flex pt-2">
                                 {% for choice in form.is_converted %}
                                     <div class="flex items-center mr-4">
-                                        <input type="radio" id="convert_{{ forloop.counter }}" name="is_converted" value="{{ choice.choice_value }}" {% if choice.is_checked %}checked{% endif %}>
-                                        <label for="convert_{{ forloop.counter }}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" onclick="document.getElementById('convertTime').style.display = this.htmlFor === 'convert_1' ? 'none' : 'block'">{{ choice.choice_label }}</label>
+                                        {{ choice.tag }}
+                                        <label for="{{ choice.id_for_label|lower }}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ choice.choice_label }}</label>
                                     </div>
                                 {% endfor %}
                             </div>
@@ -266,68 +78,75 @@
                             <div class="relative" id="convertTime" style="display: none;">
                                 {{ field }}
                             </div>
+                        {% elif field.name == 'prayers' %}
+                            <div class="relative">
+                                {{ field }}
+                            </div>
+                        {% elif field.name == 'masjid' %}
+                            <div class="relative">
+                                {{ field }}
+                            </div>
                         {% endif %}
                     {% endfor %}
 
                 </div>
-
-            <script>
-                var yesRadioButton = document.getElementById("id_is_muslim_0");
-                var muslimTypeDiv = document.getElementById("muslimTypeDiv");
-                var convertDiv = document.getElementById("convertDiv");
-                var convertTime = document.getElementById("convertTime");
-
-                yesRadioButton.addEventListener("click", function() {
-                    muslimTypeDiv.style.display = "block";
-                    convertDiv.style.display = "none";
-                    convertTime.style.display = "none";
-                    clearSelectSelection('id_convert_time');
-                });
-
-                var muslimTypeRadios = document.querySelectorAll('input[name="muslim_type"]');
-                for (var i = 0; i < muslimTypeRadios.length; i++) {
-                    muslimTypeRadios[i].addEventListener("click", function() {
-                        convertDiv.style.display = "block";
-                        convertTime.style.display = "none";
-                        clearSelectSelection('id_convert_time');
-                    });
-                }
-
-                var noRadioButton = document.getElementById("id_is_muslim_1");
-                noRadioButton.addEventListener("click", function() {
-                    muslimTypeDiv.style.display = "none";
-                    convertDiv.style.display = "none";
-                    convertTime.style.display = "none";
-                    clearRadioSelection('muslim_type');
-                    clearRadioSelection('is_converted');
-                    clearSelectSelection('id_convert_time');
-                });
-
-                var convertRadioButton = document.getElementById("id_is_converted_1");
-                convertRadioButton.addEventListener("click", function() {
-                    convertTime.style.display = "block";
-                });
-
-                function clearRadioSelection(radioGroupName) {
-                    var radioButtons = document.getElementsByName(radioGroupName);
-                    for (var i = 0; i < radioButtons.length; i++) {
-                        radioButtons[i].checked = false;
-                    }
-                }
-
-                function clearSelectSelection(selectId) {
-                    var select = document.getElementById(selectId);
-                    select.selectedIndex = 0;
-                }
-            </script>
-
-            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-6">Next</button>
+                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-6">Next</button>
             </form>
         </div>
     </div>
 
 </div>
 
+<script>
+                    var yesRadioButton = document.getElementById("id_is_muslim_0");
+                    var muslimTypeDiv = document.getElementById("muslimTypeDiv");
+                    var convertDiv = document.getElementById("convertDiv");
+                    var convertTime = document.getElementById("convertTime");
+                    
+                    yesRadioButton.addEventListener("click", function() {
+                        muslimTypeDiv.style.display = "block";
+                    });
+                    
+                    var muslimTypeRadios = document.querySelectorAll('input[name="muslim_type"]');
+                    for (var i = 0; i < muslimTypeRadios.length; i++) {
+                        muslimTypeRadios[i].addEventListener("click", function() {
+                            convertDiv.style.display = "block";
+                        });
+                    }
+                    
+                    var noRadioButton = document.getElementById("id_is_muslim_1");
+                    noRadioButton.addEventListener("click", function() {
+                        muslimTypeDiv.style.display = "none";
+                        convertDiv.style.display = "none";
+                        convertTime.style.display = "none";
+                        clearRadioSelection('muslim_type');
+                        clearRadioSelection('is_converted');
+                        clearSelectSelection('id_convert_time');
+                    });
+                    
+                    var birthRadioButton = document.getElementById("id_is_converted_0");
+                    birthRadioButton.addEventListener("click", function() {
+                        convertTime.style.display = "none";
+                        clearSelectSelection('id_convert_time');
+                    });
+                    
+                    var convertRadioButton = document.getElementById("id_is_converted_1");
+                    convertRadioButton.addEventListener("click", function() {
+                        convertTime.style.display = "block";
+                    });
+                    
+                    function clearRadioSelection(radioGroupName) {
+                        var radioButtons = document.getElementsByName(radioGroupName);
+                        for (var i = 0; i < radioButtons.length; i++) {
+                            radioButtons[i].checked = false;
+                        }
+                    }
+                    
+                    function clearSelectSelection(selectId) {
+                        var select = document.getElementById(selectId);
+                        select.selectedIndex = 0;
+                    }
+</script>
 
 <script> <!-- Age Slider -->
      // Get the slider element
@@ -363,44 +182,5 @@
     });
 </script>
 
-<!--
-<script> 
-    var yesRadioButton = document.getElementById("yes");
-    var muslimTypeDiv = document.getElementById("muslimTypeDiv");
-    var convertDiv = document.getElementById("convertDiv");
-    var selectDiv = document.getElementById("selectDiv");
-    
-    yesRadioButton.addEventListener("click", function() {
-        muslimTypeDiv.style.display = "block";
-        convertDiv.style.display = "none";
-        selectDiv.style.display = "none";
-    });
-    
-    var muslimTypeRadios = document.querySelectorAll('input[name="whatMuslim?"]');
-    for (var i = 0; i < muslimTypeRadios.length; i++) {
-        muslimTypeRadios[i].addEventListener("click", function() {
-            convertDiv.style.display = "block";
-            selectDiv.style.display = "none";
-        });
-    }
-    
-    var convertRadioButton = document.getElementById("convert");
-    convertRadioButton.addEventListener("click", function() {
-        selectDiv.style.display = "block";
-    });
-
-    var noRadioButton = document.getElementById("no1");
-    noRadioButton.addEventListener("click", function() {
-        muslimTypeDiv.style.display = "none";
-        convertDiv.style.display = "none";
-        selectDiv.style.display = "none";
-    });
-
-    var birthRadioButton = document.getElementById("birth");
-    birthRadioButton.addEventListener("click", function() {
-        selectDiv.style.display = "none";
-    });
-</script>
--->
 
 {% endblock content %}
