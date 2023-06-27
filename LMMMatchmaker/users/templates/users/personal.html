@@ -97,55 +97,77 @@
 
 </div>
 
-<script>
-                    var yesRadioButton = document.getElementById("id_is_muslim_0");
-                    var muslimTypeDiv = document.getElementById("muslimTypeDiv");
-                    var convertDiv = document.getElementById("convertDiv");
-                    var convertTime = document.getElementById("convertTime");
-                    
-                    yesRadioButton.addEventListener("click", function() {
-                        muslimTypeDiv.style.display = "block";
-                    });
-                    
-                    var muslimTypeRadios = document.querySelectorAll('input[name="muslim_type"]');
-                    for (var i = 0; i < muslimTypeRadios.length; i++) {
-                        muslimTypeRadios[i].addEventListener("click", function() {
-                            convertDiv.style.display = "block";
-                        });
-                    }
-                    
-                    var noRadioButton = document.getElementById("id_is_muslim_1");
-                    noRadioButton.addEventListener("click", function() {
-                        muslimTypeDiv.style.display = "none";
-                        convertDiv.style.display = "none";
-                        convertTime.style.display = "none";
-                        clearRadioSelection('muslim_type');
-                        clearRadioSelection('is_converted');
-                        clearSelectSelection('id_convert_time');
-                    });
-                    
-                    var birthRadioButton = document.getElementById("id_is_converted_0");
-                    birthRadioButton.addEventListener("click", function() {
-                        convertTime.style.display = "none";
-                        clearSelectSelection('id_convert_time');
-                    });
-                    
-                    var convertRadioButton = document.getElementById("id_is_converted_1");
-                    convertRadioButton.addEventListener("click", function() {
-                        convertTime.style.display = "block";
-                    });
-                    
-                    function clearRadioSelection(radioGroupName) {
-                        var radioButtons = document.getElementsByName(radioGroupName);
-                        for (var i = 0; i < radioButtons.length; i++) {
-                            radioButtons[i].checked = false;
-                        }
-                    }
-                    
-                    function clearSelectSelection(selectId) {
-                        var select = document.getElementById(selectId);
-                        select.selectedIndex = 0;
-                    }
+<script> <!-- Hidden Divs and required/not required -->
+    var yesRadioButton = document.getElementById("id_is_muslim_0");
+    var muslimTypeDiv = document.getElementById("muslimTypeDiv");
+    var convertDiv = document.getElementById("convertDiv");
+    var convertTime = document.getElementById("convertTime");
+    var muslimTypeRadios = document.querySelectorAll('input[name="muslim_type"]');
+    var birthRadioButton = document.getElementById("id_is_converted_0");
+    var convertRadioButton = document.getElementById("id_is_converted_1");
+    
+    yesRadioButton.addEventListener("click", function () {
+        muslimTypeDiv.style.display = "block";
+        setFieldsRequired(true);
+    });
+    
+    for (var i = 0; i < muslimTypeRadios.length; i++) {
+        muslimTypeRadios[i].addEventListener("click", function () {
+            convertDiv.style.display = "block";
+            setFieldsRequired(true);
+        });
+    }
+    
+    var noRadioButton = document.getElementById("id_is_muslim_1");
+    noRadioButton.addEventListener("click", function () {
+        muslimTypeDiv.style.display = "none";
+        convertDiv.style.display = "none";
+        convertTime.style.display = "none";
+        clearRadioSelection("muslim_type");
+        clearRadioSelection("is_converted");
+        clearSelectSelection("id_convert_time");
+        setFieldsRequired(false);
+    });
+    
+    birthRadioButton.addEventListener("click", function () {
+        convertTime.style.display = "none";
+        clearSelectSelection("id_convert_time");
+        setFieldsRequired(true);
+    });
+    
+    convertRadioButton.addEventListener("click", function () {
+        convertTime.style.display = "block";
+        setFieldsRequired(true);
+    });
+    
+    function setFieldsRequired(required) {
+        var muslimTypeRadios = document.querySelectorAll('input[name="muslim_type"]');
+        var convertRadioButtons = document.querySelectorAll('input[name="is_converted"]');
+        var convertTimeSelect = document.getElementById("id_convert_time");
+    
+        muslimTypeRadios.forEach(function (radio) {
+            radio.required = required;
+        });
+    
+        convertRadioButtons.forEach(function (radio) {
+            radio.required = required;
+        });
+    
+        convertTimeSelect.required = required;
+    }
+    
+    function clearRadioSelection(radioGroupName) {
+        var radioButtons = document.getElementsByName(radioGroupName);
+        for (var i = 0; i < radioButtons.length; i++) {
+            radioButtons[i].checked = false;
+        }
+    }
+    
+    function clearSelectSelection(selectId) {
+        var select = document.getElementById(selectId);
+        select.selectedIndex = 0;
+    }
+    
 </script>
 
 <script> <!-- Age Slider -->

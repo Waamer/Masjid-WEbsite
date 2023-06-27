@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import PersonalData
+from .models import UserProfile
 
 sliderClass = """h-1 my-2 mt-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700"""
 selectClass = """block text-xs md:text-sm font-light py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-700 focus:outline-none focus:ring-0"""
@@ -20,7 +21,7 @@ class UserRegisterForm(UserCreationForm):
     password1 = forms.CharField(widget=forms.TextInput(attrs={'class': tailwind_class, 'type': 'password', 'placeholder': ' ', 'id': 'floating_password1', 'required': True, 'data-tooltip-target' : 'tooltip', 'data-tooltip-trigger' : 'click'}), label='')
     password2 = forms.CharField(widget=forms.TextInput(attrs={'class': tailwind_class, 'type': 'password', 'placeholder': ' ', 'id': 'floating_password2', 'required': True}), label='')
     gender = forms.ChoiceField(
-        label='Male or Female?',
+        label='Gender',
         choices=(
             ('male', 'Male'),
             ('female', 'Female'),
@@ -34,6 +35,14 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'gender']
+
+    def save(self, commit=True):
+        user = super(UserRegisterForm, self).save(commit=False)
+        if commit:
+            user.save()
+            user_profile = UserProfile.objects.create(user=user, gender=self.cleaned_data['gender'])
+        return user
+
 
 class PersonalForm(forms.ModelForm):
 
@@ -107,7 +116,7 @@ class PersonalForm(forms.ModelForm):
         widget=forms.RadioSelect(attrs={
             'class': radioButtonClass,
         }),
-        required=False,
+        required=True,
     )
     
     muslim_type = forms.ChoiceField(
@@ -149,6 +158,7 @@ class PersonalForm(forms.ModelForm):
             'class': selectClass,
         }),
         initial='',
+        required=False,
     )
 
     prayers = forms.ChoiceField(
